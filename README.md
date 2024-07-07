@@ -42,3 +42,44 @@ Open the `index.html` file in your web browser to view the website.
 
 ```bash
 open index.html
+```
+
+## Contributing
+
+We welcome contributions from the community! To contribute, follow these steps:
+
+1. **Fork the repository.**
+2. **Create a new branch:**
+
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+
+3. **Make your changes and commit them:**
+
+   ```bash
+    git commit -m 'Add some feature'
+    ```
+
+4. **Push to the branch:**
+
+   ```bash
+    git push origin feature/your-feature-name
+    ```
+
+5. **Open a pull request.**
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+For more information, please contact us at research@saadicorp.com.
+
+### Explanation:
+1. **Introduction**: Provides a brief overview of SaadiCorp and the purpose of the website.
+2. **Features**: Lists the main features of the website.
+3. **Installation**: Instructions on how to clone the repository and navigate to the project directory.
+4. **Usage**: Instructions on how to open the `index.html` file to view the website.
+5. **Contributing**: Guidelines on how to contribute to the project.
+6. **License**: Information about the project's license.
+7. **Contact**: Contact information for further inquiries.
