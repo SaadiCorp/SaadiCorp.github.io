@@ -1,3 +1,127 @@
+<<<<<<< HEAD
+body, html {
+    height: 100%;
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    background-color: #437993;
+    /*background-image: url('');*/
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    
+}
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+@font-face { font-family: Andes; src: url('ANDES.TTF'); } 
+      h1, h5 {
+         font-family: Andes
+}
+
+@font-face { font-family: Roboto-light; src: url('ROBOTO-LIGHT.TTF'); } 
+      h2, p, h3, li, h4, nav, h6 {
+         font-family: Roboto-Light
+}
+
+@font-face { font-family: Roboto-Regular; src: url('ROBOTO-REGULAR.TTF'); } 
+      h3 {
+         font-family: Roboto-Regular
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 0px 0;
+    z-index: 1000;
+}
+
+.fixed-header nav a {
+    margin: 0 40px;
+    margin-bottom: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+.fixed-header nav a:hover {
+    text-decoration: underline;
+}
+
+.left {
+    left: 1px;
+    align-content: center;
+    align-items: baseline;
+}
+
+nav {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    text-align: center;
+    margin-right: 4%;
+    font-size: 14px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    font-size: 75px;
+}
+
+h5 {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 50px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 18px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 33px;
+}
+
+h4 {
+    color: grey;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    border: 0px solid green;
+    padding: 10px;
+}
+
+p {
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    border: 0px solid green;
+    padding: 40px;
+    line-height: 1.8;
+}
+
+li {
+    text-align: justify;
+    margin: auto;
+    width: 100%;
+    border: 0px solid green;
+    padding: 10px;
+=======
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -51,4 +175,5 @@ hr {
 
 p {
     margin-bottom: 15px;
+>>>>>>> 4acb1e4b2bcd55ee8d61c3b65adc80e34dfa2e6d
 }
