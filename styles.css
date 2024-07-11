@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     font-family: Arial, sans-serif;
 }
 
@@ -15,6 +15,13 @@ body, html {
     background-repeat: no-repeat;
     position: absolute;
     
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 canvas {
@@ -35,7 +42,7 @@ canvas {
 @font-face { font-family: Roboto-light; src: url('ROBOTO-LIGHT.TTF'); } 
       p {
          font-family: monospace;
-          color: #454545;
+          color: gray;
 }
 
 @font-face { font-family: Roboto-Regular; src: url('ROBOTO-REGULAR.TTF'); } 
@@ -125,7 +132,7 @@ h2 {
 
 h3 {
     text-align: center;
-    font-size: 33px;
+    font-size: 20px;
 }
 
 h4 {
