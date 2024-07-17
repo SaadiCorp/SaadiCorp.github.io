@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="referrer" content="origin"><meta name="theme-color" content="#fff"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link id="pwa-manifest-placeholder" rel="manifest" href=""><script>window.RETOOL_FRONTEND_FAKE_BACKEND_MODE =
+      
+          true;
+      
+
+      // #PageVisibility
+      // Here we detect if user has suspended the browser page / tab since loading
+      // See https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+      window.RETOOL_PAGE_SUSPEND_DETECTED = document.visibilityState === 'visible'
+      function _detectVisibilityChange() {
+        if (document.visibilityState === 'hidden') {
+          window.RETOOL_PAGE_SUSPEND_DETECTED = true
+          // Remove listener because we only detect it once
+          document.removeEventListener('visibilitychange', _detectVisibilityChange)
+        }
+      }
+      // Only listen for change if page is not already hidden
+      if (document.visibilityState === 'visible') {
+        document.addEventListener('visibilitychange', _detectVisibilityChange)
+      }</script><script>// https://stackoverflow.com/a/24103596
+      function _getCookie(name) {
+        var nameEq = (name += '=')
+        var ca = document.cookie.split(';')
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i]
+          while (c.charAt(0) === ' ') c = c.substring(1, c.length)
+          if (c.indexOf(nameEq) === 0) return c.substring(nameEq.length, c.length)
+        }
+      }
+
+      // Here we do an eager fetch of user data as a performance optimization. By doing the
+      // fetch here, in an inline script, we can fire it asap while the initial webpack
+      // bundle loads and evals. This is strictly for performance optimization and non-essential,
+      // if this fails to run or has errors then the normal application flow will handle the
+      // fetch for user data.
+
+      if (
+        !RETOOL_FRONTEND_FAKE_BACKEND_MODE &&
+        _getCookie('xsrfToken') && // presence of xsrf token means user is already authed
+        window.fetch !== undefined && // make sure fetch api is available
+        !new URL(location.origin).host.startsWith('login.') // avoid special login domain
+      ) {
+        window.RETOOL_USER_FETCH = fetch('/api/user', {
+          credentials: 'same-origin',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'Relax-Login-Subdomain-Restrictions': false,
+            'X-Xsrf-Token': _getCookie('xsrfToken'),
+            'X-Retool-Client-Version': '3.71.0-f818d2e (Build 184166)',
+          },
+        })
+      }</script><script>function parseAsBool(envValue, defaultValue) {
+        if (envValue === 'true') {
+          return true
+        } else if (envValue === 'false') {
+          return false
+        } else {
+          return defaultValue
+        }
+      }
+
+      // Webpack uses slightly unconventional EJS templating which is why we need to duplicate this
+      // snippet. ViteJS does it the "right way" and will be the what we keep once migration to
+      // Vite is done, so lets just keep this duplicated for now.
+      
+      SANDBOX_DOMAIN = "https://retool-edge.com"
+      ALLOW_SAME_ORIGIN_OPTION = parseAsBool("true", false)
+      MAIN_DOMAIN = "retool.com"
+      SAML_ENABLED = parseAsBool("false", false)
+      CLIENT_ID = "716367306867-d861tjqj92gjb0uphcjt8gu2nvtf6e9t.apps.googleusercontent.com"
+      RESTRICTED_DOMAIN = ""
+      DISABLE_USER_PASS_LOGIN = parseAsBool("false", false)
+      INCLUDE_COOKIES_IN_API_CALLS = ""
+      DISABLE_INTERCOM = parseAsBool("false", false)
+      VERSION_CONTROL_LOCKED = parseAsBool("false", false)
+      IS_ADMIN = parseAsBool("false", false)
+      WEBPACK_SHARED_BUILD_VERSION = "184166_f818d2e"
+      
+
+      window.htmlLoadedAt = performance.now()</script><script>if (window.location.pathname.startsWith('/embed-redirect') && !window.location.pathname.startsWith('/form/')) {
+        Intercom = function () {}
+      } else {
+        ;(function () {
+          var w = window
+          var ic = w.Intercom
+          if (typeof ic === 'function') {
+            ic('reattach_activator')
+            ic('update', intercomSettings)
+          } else {
+            var d = document
+            var i = function () {
+              i.c(arguments)
+            }
+            i.q = []
+            i.c = function (args) {
+              i.q.push(args)
+            }
+            w.Intercom = i
+            function l() {
+              var s = d.createElement('script')
+              s.type = 'text/javascript'
+              s.async = true
+              s.src = 'https://widget.intercom.io/widget/'
+              var x = d.getElementsByTagName('script')[0]
+              x.parentNode.insertBefore(s, x)
+            }
+            setTimeout(l, 8000)
+          }
+        })()
+      }</script><script>if (
+        !window.location.pathname.startsWith('/embedded/') &&
+        !window.location.pathname.startsWith('/public/') &&
+        !window.location.pathname.startsWith('/embed-redirect') &&
+        !window.location.pathname.startsWith('/form/')
+      ) {
+        window['_fs_debug'] = false
+        window['_fs_host'] = 'fullstory.com'
+        window['_fs_script'] = 'edge.fullstory.com/s/fs.js'
+        window['_fs_org'] = '4ZFX6'
+        window['_fs_namespace'] = 'FS'
+        ;(function (m, n, e, t, l, o, g, y) {
+          if (e in m) {
+            if (m.console && m.console.log) {
+              m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].')
+            }
+            return
+          }
+          g = m[e] = function (a, b, s) {
+            g.q ? g.q.push([a, b, s]) : g._api(a, b, s)
+          }
+          g.q = []
+          o = n.createElement(t)
+          o.async = 1
+          o.crossOrigin = 'anonymous'
+          o.src = 'https://' + _fs_script
+          y = n.getElementsByTagName(t)[0]
+          y.parentNode.insertBefore(o, y)
+          g.identify = function (i, v, s) {
+            g(l, { uid: i }, s)
+            if (v) g(l, v, s)
+          }
+          g.setUserVars = function (v, s) {
+            g(l, v, s)
+          }
+          g.event = function (i, v, s) {
+            g('event', { n: i, p: v }, s)
+          }
+          g.anonymize = function () {
+            g.identify(!!0)
+          }
+          g.shutdown = function () {
+            g('rec', !1)
+          }
+          g.restart = function () {
+            g('rec', !0)
+          }
+          g.log = function (a, b) {
+            g('log', [a, b])
+          }
+          g.consent = function (a) {
+            g('consent', !arguments.length || a)
+          }
+          g.identifyAccount = function (i, v) {
+            o = 'account'
+            v = v || {}
+            v.acctId = i
+            g(o, v)
+          }
+          g.clearUserCookie = function () {}
+          g._w = {}
+          y = 'XMLHttpRequest'
+          g._w[y] = m[y]
+          y = 'fetch'
+          g._w[y] = m[y]
+          if (m[y])
+            m[y] = function () {
+              return g._w[y].apply(this, arguments)
+            }
+          g._v = '1.2.0'
+          // We sample aggressively in all cases since we have a lower sample frequency for the editor, which is generally what we're most interested in
+          // Sampling on this page allows us to also see pages like resources and settings.
+          if (Math.random() >= 0.02) {
+            FS.shutdown()
+          }
+        })(window, document, window['_fs_namespace'], 'script', 'user')
+      } else {
+        FS = {
+          identify: function () {},
+          clearUserCookie: function () {},
+          event: function () {},
+        }
+      }</script><script>(function(){var bundleSrcs=["https://retool-edge.com/styles/app.app.44b3c956.css"]; function errorHandler() {
+  var url = this._url;
+  var retryCount = this._retryCount;
+  if (retryCount < 5) {
+    this.remove();
+    document.head.appendChild(createLinkEl(url, Date.now(), retryCount + 1));
+  }
+}
+function createLinkEl(url, cacheBustStr, retryCount) {
+  var linkTag = document.createElement('link');
+  linkTag.onerror = errorHandler;
+  linkTag.rel = 'stylesheet';
+  linkTag.type = 'text/css';
+  linkTag._url = url;
+  linkTag._retryCount = retryCount ? retryCount : 0;
+  linkTag.href = cacheBustStr ? url + '?' + cacheBustStr : url;
+  return linkTag;
+}
+for (var i = 0; i < bundleSrcs.length; i++) {
+  document.head.appendChild(createLinkEl(bundleSrcs[i]));
+}
+})();</script></head><body><div id="root" style="height: 100%"></div><div id="translationToolDetectionId" style="position: absolute; left: -9999px; top: -9999px; visibility: hidden; z-index: -100">This is some invisible text to see if a translation tool is being used</div><script>window.runtimeManifest = {"runtime~runtime.js":"runtime~runtime.9cf52607.js","runtime.js":"runtime.c95446d6.js","app.js":"app.6cfea42e.js"}</script><script>(function(){var bundleSrcs=["https://retool-edge.com/runtime~app.438c6595.js","https://retool-edge.com/app.6cfea42e.js"]; function errorHandler() {
+  var url = this._url;
+  var retryCount = this._retryCount;
+  if (retryCount < 5) {
+    this.remove();
+    document.body.appendChild(createScriptEl(url, Date.now(), retryCount + 1));
+  }
+}
+function createScriptEl(url, cacheBustStr, retryCount) {
+  var scriptTag = document.createElement('script');
+  scriptTag.onerror = errorHandler;
+  scriptTag.defer = 'defer';
+  scriptTag.fetchPriority = 'high';
+  scriptTag._url = url;
+  scriptTag._retryCount = retryCount ? retryCount : 0;
+  scriptTag.src = cacheBustStr ? url + '?' + cacheBustStr : url;
+  return scriptTag;
+}
+for (var i = 0; i < bundleSrcs.length; i++) {
+  document.body.appendChild(createScriptEl(bundleSrcs[i]));
+}
+})();</script></body></html>
