@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+}
+.sidebar {
+    background-color: #2D5A91;
+    color: white;
+    padding: 20px;
+    width: 220px;
+    height: 100vh;
+}
+.sidebar h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar li {
+    margin: 10px 0;
+    cursor: pointer;
+}
+.content {
+    padding: 20px;
+    flex: 1;
+}
+.tab {
+    display: none;
+}

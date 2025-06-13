@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIPS — SaadiCorp Internal Portal System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>SIPS</h1>
+        <nav>
+            <ul>
+                <li onclick="showTab('announcements')">Announcements</li>
+                <li onclick="showTab('hr-docs')">HR Documents</li>
+                <li onclick="showTab('leave-calendar')">Leave Calendar</li>
+                <li onclick="showTab('leave-form')">Leave Request</li>
+                <li onclick="showTab('directory')">Team Directory</li>
+                <li onclick="showTab('recognition')">Recognition Wall</li>
+                <li onclick="showTab('knowledge')">Knowledge Base</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <div id="announcements" class="tab">Welcome to SIPS.</div>
+        <div id="hr-docs" class="tab" style="display:none">HR Documents here.</div>
+        <div id="leave-calendar" class="tab" style="display:none">Leave calendar data.</div>
+        <div id="leave-form" class="tab" style="display:none">Leave form goes here.</div>
+        <div id="directory" class="tab" style="display:none">Team directory data.</div>
+        <div id="recognition" class="tab" style="display:none">Recognition Wall here.</div>
+        <div id="knowledge" class="tab" style="display:none">Knowledge base content.</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
