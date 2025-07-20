@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Onboarding</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="22ff287b-80e0-807e-822a-d45d0632a06f" class="page sans"><header><h1 class="page-title">Onboarding</h1><p class="page-description"></p></header><div class="page-body"><p id="22ff287b-80e0-80d8-aefb-f7ab6cfffe73" class=""><strong>Welcome to SaadiCorp!</strong> This onboarding journey will help you get up to speed with our tools, workflows, responsibilities, expectations (and most importantly), our culture.</p><h2 id="22ff287b-80e0-805f-a26e-d9727c078ce1" class=""><strong><br/>Read These First<br/></strong></h2><p id="22ff287b-80e0-804d-a2d0-f29cd2619378" class="">These are core readings that define our expectations, rhythm, and style. Please read fully by the <strong>first week</strong>:</p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SaadiCorp Culture</summary><div class="indented"><p id="22ff287b-80e0-8065-b8dc-dfbba82970a6" class="">The culture at SaadiCorp is built on clarity, precision, and accountability. We operate in a space that demands sharp execution and clear thinking, and our internal environment reflects those same principles. Every member of the firm is expected to bring a high degree of professionalism to their work, regardless of title or function. We keep communication clean, task ownership clear, and outputs aligned with the firm&#x27;s long-term positioning.</p><p id="22ff287b-80e0-806f-bbd6-c5e34b5f7924" class="">We believe that trust is built through consistency, not performance alone. Internal transparency is expected, but not performative. Colleagues are encouraged to document decisions, communicate delays early, and escalate when needed. There is no reward for unnecessary complexity or theatrics—only for clean delivery and operational reliability.</p><p id="22ff287b-80e0-8058-9b08-fd575092c677" class="">We do not rely on motivation as a driver. Systems, processes, and structure come first, and individual initiative is expressed through disciplined execution within that framework. Every team member should know what is expected of them on a daily and weekly basis, and they should be able to articulate their current priorities in simple terms at any time. Our workdays are built around forward movement, not emotional cycles.</p><p id="22ff287b-80e0-80cc-b794-db8bdd48df60" class="">The firm maintains a quiet intensity. Meetings are kept lean, updates are precise, and messaging is intentional. We don’t chase urgency, but we don’t entertain drift either. If something matters, it gets written, tracked, and closed. If something doesn&#x27;t, it gets archived. Our culture rewards those who can distinguish between signal and noise.</p><p id="22ff287b-80e0-8033-b6d5-ed87e6517778" class="">Discretion is foundational. The work we do often involves sensitive information, high-trust relationships, and forward-looking insights. Loose talk, overexposure, or personal branding at the expense of the firm are not tolerated. We are collectively responsible for protecting the brand, relationships, and internal operations of SaadiCorp.</p><p id="22ff287b-80e0-80ed-88a9-d52b0eac5ed9" class="">Internally, we operate with a quiet chain of command. Decisions are centralized, execution is distributed. Feedback is expected to move up and down the organization in a calm and direct manner. We do not entertain passive resistance, backchannel complaints, or performative agreement. Speak directly, or not at all.</p><p id="22ff287b-80e0-80ae-a3df-ddbf4411066b" class="">There is no internal competition. Individual performance matters, but it is evaluated in the context of collective outcomes. Recognition is private, progress is tracked, and improvements are assumed. The firm has no obligation to reward presence alone—only impact, discretion, and consistency.</p><p id="22ff287b-80e0-80c0-9625-f73cd89c9359" class="">SaadiCorp is not a casual workplace. That does not mean it is unkind or unwelcoming. It means that we take ourselves and our work seriously. We are building institutional habits, not just reacting to immediate tasks. Every member of the team, no matter how junior or senior, is expected to contribute to that institutional consistency.</p><p id="22ff287b-80e0-8052-bce4-e50391cc0d97" class="">Ultimately, culture at SaadiCorp is defined by how we operate when no one is watching. It’s not about slogans or social posts. It’s about whether work gets done right, every time, without needing reminders or applause. That’s the standard we maintain, and the one every new hire is expected to adopt immediately.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Confidentiality &amp; Discretion</summary><div class="indented"><p id="22ff287b-80e0-80cd-898c-ed91f7a0f517" class="">At SaadiCorp, confidentiality is not a soft value — it is a binding operational principle. The nature of our work requires complete discretion across all communication channels, internal workflows, and external relationships. This expectation begins from day one and applies to every team member, regardless of function or seniority.</p><p id="22ff287b-80e0-8001-87a5-f976ded37c17" class="">Information shared within the firm is not casual. Everything from founder updates, LP conversations, deal terms, to internal documents is treated as confidential by default. Nothing discussed within SaadiCorp — whether in meetings, messages, calls, or files — should be shared, quoted, or paraphrased outside the firm unless explicitly cleared in writing. This includes conversations with friends, family, peers, and especially other industry professionals.</p><p id="22ff287b-80e0-803d-8c52-e3d2b17dbee3" class="">Screenshots, forwarded emails, untracked file sharing, and third-party conversations pose direct risk to the firm’s reputation and legal standing. These actions are considered violations, whether or not the information was sensitive in nature. Discretion is not measured by intention, but by exposure.</p><p id="22ff287b-80e0-8007-8b6f-f1c933fdeba0" class="">External representation of the firm must also be handled with care. Employees are not permitted to speak on behalf of SaadiCorp in public forums, panels, or media without formal approval. Personal social media accounts must not reference internal strategy, in-progress deals, LPs, or portfolio matters. Even casual or indirect references are discouraged. The firm maintains a low-visibility posture, and every employee contributes to upholding that.</p><p id="22ff287b-80e0-8077-ab4f-c7850fafb94a" class="">When working with founders, investors, or partners, discretion is an extension of respect. Founders trust us with their materials, strategies, and vulnerabilities. LPs trust us with their capital and personal disclosures. Our ability to preserve these relationships over time depends on the absolute reliability of our internal conduct. A single breach can jeopardize years of credibility.</p><p id="22ff287b-80e0-8022-8d10-d46a0d033160" class="">Internally, discretion also applies to interpersonal dynamics. Conversations between team members are not to be repeated or relayed out of context. Feedback, concerns, and challenges should be routed through proper channels — never through informal side discussions or speculative narratives. We maintain a clean culture, and that includes how we talk about each other when not present.</p><p id="22ff287b-80e0-80c8-8af4-f4e0b5e430eb" class="">Access to documents, passwords, shared folders, and internal portals must be managed carefully. Devices used for SaadiCorp work must be secure, with updated operating systems, screen locks, and two-factor authentication enabled. Public workspaces, co-working lounges, or transport environments should never be used for sensitive calls or open documents. Messages and emails must remain clear, professional, and free of any content that could be misinterpreted or repurposed.</p><p id="22ff287b-80e0-8056-ad8c-e5cf8ce01aad" class="">Violations of confidentiality — whether accidental or deliberate — result in immediate review. The firm does not distinguish between major or minor leaks. The standard is total, and all employees are expected to uphold it as a condition of continued involvement with the firm.</p><p id="22ff287b-80e0-8008-b908-e09cbc67a119" class="">Discretion is not about fear. It’s about discipline. Our work demands trust from people who take risks, move capital, and make long-term bets. That trust is built on the assumption that what’s said inside SaadiCorp stays inside SaadiCorp. We don’t compromise that under any circumstance.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SOPs &amp; Task Management</summary><div class="indented"><p id="22ff287b-80e0-80d6-8cf3-cff9cbddd309" class="">Task management at SaadiCorp is grounded in structure, clarity, and follow-through. Every task exists to move the firm forward in measurable ways, and every team member is expected to treat task ownership as a core function of their role. This protocol outlines how tasks are created, assigned, tracked, and closed across the firm.</p><p id="22ff287b-80e0-8007-af67-c11ccf697a31" class="">Tasks must originate from clear directives. Whether assigned during a call, written in Notion, or discussed over chat, every task must be documented in a central tracking system. Verbal agreements or vague acknowledgements are insufficient. If a task is not recorded, it does not exist. Each task must include a clear owner, a due date, and an outcome. Tasks without these elements will not be reviewed or followed up on.</p><p id="22ff287b-80e0-80e1-b157-d135fda9fbe3" class="">Responsibility for a task lies solely with the person it is assigned to. Ownership does not mean awareness — it means full accountability. If a task is unclear, it is the owner&#x27;s duty to clarify it immediately. If a deadline cannot be met, it is the owner&#x27;s duty to escalate before the deadline, not after. There is no tolerance for tasks going quiet, getting lost, or slipping through. Missed tasks impact the entire operational rhythm of the firm.</p><p id="22ff287b-80e0-8070-91fb-d5c38504f066" class="">There is no concept of shared responsibility. Each task has one owner, even if multiple people are involved. This eliminates ambiguity. If support is needed, it must be requested directly, not assumed. If a task is blocked, the owner must flag it and propose a resolution. Waiting silently or assuming others are aware is not acceptable.</p><p id="22ff287b-80e0-80ee-b6e6-d0006f4160b9" class="">Tasks must be closed with visible documentation. This includes a summary of what was done, any relevant files or links, and any unresolved items that emerged during execution. Closing a task means it is ready for review or handoff, not just that the work was attempted. “Done” means ready for the next step without clarification.</p><p id="22ff287b-80e0-80a8-a438-cd200b4fa627" class="">All team members are required to review their task lists at the beginning and end of each workday. New tasks must be integrated into the system immediately. Tasks discussed in meetings must be logged by the person responsible — it is not the meeting lead’s job to assign or remind. The system is self-managed and self-cleaned. If you see a task that is outdated, redundant, or misfiled, update it. Operational hygiene is everyone’s responsibility.</p><p id="22ff287b-80e0-80a8-98b3-d1b21e0aa245" class="">Every week, task lists will be audited. The purpose of this audit is not performance policing, but flow correction. Tasks that remain open for more than seven days without a reason will be reviewed. If you repeatedly close tasks late, without updates, or with incomplete delivery, it will reflect in your quarterly evaluation. The firm values speed, but never at the cost of accuracy or accountability.</p><p id="22ff287b-80e0-8034-9949-e535c72bf6e3" class="">There is no reward for doing a large number of tasks with poor execution. One clean, critical task closed with precision is more valuable than ten low-impact activities. The firm tracks output in terms of strategic progress, not surface activity. Team members are expected to prioritize high-leverage work and communicate when lower-priority tasks are being paused or deprioritized.</p><p id="22ff287b-80e0-80e9-9047-e242bfa17858" class="">Tasks are not personal. Feedback on task quality is expected to be direct, specific, and solution-oriented. If a task was not completed to standard, it must be corrected. There is no need for defensiveness or justification. Corrections are part of the operating system, not criticism of the person. We correct the system first, then the behavior.</p><p id="22ff287b-80e0-80e2-9228-c93643eb3c45" class="">The firm operates with a high standard of task discipline because it reduces friction and protects speed. The goal of this protocol is not micromanagement — it is autonomy through clarity. When tasks are documented, owned, and closed properly, teams operate faster, founders are better served, and the firm scales without chaos. That is the objective, and that is the standard.</p></div></details><p id="22ff287b-80e0-802b-9487-fba460727aa3" class="">
+</p><h2 id="22ff287b-80e0-8017-934c-d535ca972113" class="">Your Initial Responsibilities</h2><p id="22ff287b-80e0-80b8-97ca-c87e79cf6f7d" class="">Here’s what we expect from you in your <strong>first week </strong>at the firm:</p><ol type="1" id="22ff287b-80e0-8072-ba88-ff9e0c557a97" class="numbered-list" start="1"><li>Read this onboarding page fully</li></ol><ol type="1" id="22ff287b-80e0-802f-80e9-c301f79f070b" class="numbered-list" start="2"><li>Read through  </li></ol><ol type="1" id="22ff287b-80e0-80d9-a21d-fe0e73e7fcc2" class="numbered-list" start="3"><li>Join and sync calendar access</li></ol><ol type="1" id="22ff287b-80e0-8040-99a6-d7f801ab8d2f" class="numbered-list" start="4"><li>Submit your personal info for payroll/ID</li></ol><ol type="1" id="22ff287b-80e0-8024-8b6e-f753434d2e3e" class="numbered-list" start="5"><li>Set up Slack/WhatsApp profile photo (professional image)</li></ol><ol type="1" id="22ff287b-80e0-8076-9f64-e28b8f6df64d" class="numbered-list" start="6"><li>Attend 1:1 with Naveed</li></ol><ol type="1" id="22ff287b-80e0-8034-8d4f-dfe7297571f1" class="numbered-list" start="7"><li>Shadow a Founder Call</li></ol><ol type="1" id="22ff287b-80e0-80a7-8a1c-c37d9e68fe7b" class="numbered-list" start="8"><li>Complete your first SOP review</li></ol><p id="22ff287b-80e0-8070-9bba-f34dea59f58d" class="">
+</p><h2 id="22ff287b-80e0-80dd-a74b-da119a770b06" class="">Your Daily Rhythm</h2><p id="22ff287b-80e0-80b4-9529-f25a90004770" class="">You will be expected to:</p><ol type="1" id="22ff287b-80e0-8096-8604-db0c3335eb90" class="numbered-list" start="1"><li>Check the dashboard for any urgent announcements</li></ol><ol type="1" id="22ff287b-80e0-806b-8dcc-f65b9d4d0c62" class="numbered-list" start="2"><li>Review your task queue and update as progressed</li></ol><ol type="1" id="22ff287b-80e0-809c-af28-c891b9cdbcc5" class="numbered-list" start="3"><li>Send a 5-line daily summary every evening to your reporting body</li></ol><ol type="1" id="22ff287b-80e0-8014-a5ce-e091ddcffe15" class="numbered-list" start="4"><li>Confirm any high-priority items with team members</li></ol><ol type="1" id="22ff287b-80e0-80d8-95c3-cb2b9041a1d7" class="numbered-list" start="5"><li>Check calendar for any upcoming calls or meetings</li></ol><ol type="1" id="22ff287b-80e0-8029-9c2a-d3dbdb463b01" class="numbered-list" start="6"><li>Check team messages/emails for new updates</li></ol><p id="22ff287b-80e0-8052-adb5-caac82ed7b9b" class="">
+</p><h2 id="22ff287b-80e0-8055-b283-c72ad03584b7" class="">Success Metrics</h2><p id="22ff287b-80e0-800a-b8f9-f71fe0ed7586" class="">You’re not here to just fill space. We’ll assess you based on:</p><ol type="1" id="22ff287b-80e0-80f1-9398-f326460ad9f0" class="numbered-list" start="1"><li>Task Completion Rate</li></ol><ol type="1" id="22ff287b-80e0-80cd-94a7-ce12ec1d24d5" class="numbered-list" start="2"><li>Response Time</li></ol><ol type="1" id="22ff287b-80e0-802f-b45a-ebe6493ce2ca" class="numbered-list" start="3"><li>Documentation Accuracy</li></ol><ol type="1" id="22ff287b-80e0-8057-b034-ccaefd9236d0" class="numbered-list" start="4"><li>File &amp; Folder Hygiene</li></ol><ol type="1" id="22ff287b-80e0-803c-a371-cf2f3cdc37d9" class="numbered-list" start="5"><li>Communication Quality</li></ol><ol type="1" id="22ff287b-80e0-8091-96ad-ed5e3340657d" class="numbered-list" start="6"><li>Calendar Discipline</li></ol><ol type="1" id="22ff287b-80e0-807d-befb-daea93f4e28a" class="numbered-list" start="7"><li>Output Quality</li></ol><ol type="1" id="22ff287b-80e0-80f7-8d73-eada68552bec" class="numbered-list" start="8"><li>Escalation Handling</li></ol><ol type="1" id="22ff287b-80e0-8017-9655-ce9a15542e92" class="numbered-list" start="9"><li>System Familiarity</li></ol><ol type="1" id="22ff287b-80e0-8052-ba8e-e884a14f6fbb" class="numbered-list" start="10"><li>Reporting Consistency</li></ol><p id="22ff287b-80e0-807b-8f9e-ff03e3d8c034" class="">
+</p><h2 id="22ff287b-80e0-80d7-987b-f31cae635a42" class="">Final Onboarding Note</h2><p id="22ff287b-80e0-809f-a703-c50e6571372a" class="">Welcome to SaadiCorp.</p><p id="22ff287b-80e0-8097-a17d-de08c04bbf6a" class="">You are now part of a firm that values clarity over chaos, structure over speed, and consistency over performance theater. Your role here is not just to complete tasks — it’s to support a system that functions with precision, discretion, and long-term reliability. Every contribution you make should strengthen the internal rhythm of the firm and reduce the cognitive load on the people around you.</p><p id="22ff287b-80e0-8063-b04e-d7d3d4bc8782" class="">You’ve been given the tools, context, and expectations required to operate effectively. From this point forward, your ownership of the role will be measured not by how much time you spend, but by how cleanly, calmly, and correctly you deliver what’s expected. When there’s uncertainty, ask. When there’s a delay, escalate. When something’s complete, close it fully. That rhythm alone will carry you forward.</p><p id="22ff287b-80e0-804b-b1f6-e539e1a6bc47" class="">There is no hierarchy in standards. Everyone here — regardless of title — is expected to work with the same level of discipline, tone, and care. That is what protects the firm, builds external trust, and creates internal alignment. It’s also what creates a reputation over time — quiet, earned, and difficult to undo.</p><p id="22ff287b-80e0-804f-8e88-e6b597637b6a" class="">If you’re here, it means we trust your ability to uphold this. From today onward, act like you belong. Operate like you’ve been here. And remember: the work speaks long before you ever do.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
